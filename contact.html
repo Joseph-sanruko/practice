@@ -27,7 +27,10 @@
         <ul>
           <li><a href="index.html">HOME</a></li>
           <li><a href="about us.html">ABOUT US</a></li>
-          <li><a href="#" style="color: red;">CONTACT US</a></li>
+          <li><a href="#" style="border: solid white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: white 5px 5px 5px;">CONTACT US</a></li>
         </ul>
       </nav>
     </div>
@@ -201,6 +204,14 @@
 
     
     alert("Form submitted successfully!");
+
+    let answer = confirm("Do you want to make another contuct?");
+    if(confirm){
+      alert("You Click OK");
+    }else{
+      alert("You Click Cancel");
+      return;
+    }
   });
 </script>
 
