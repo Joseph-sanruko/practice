@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manwhatoon</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="ChatGPT Image Jun 8, 2025, 08_39_59 PM.png" type="image/x-icon">
+</head>
+<style>
+  h1{
+    display: flex;
+    justify-content: center;
+    background-color:  #2A2A2A;
+    padding: 10px;
+    color: white;
+    margin-top: 10px;
+  }
+</style>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo">
+        <img src="ChatGPT Image Jun 8, 2025, 08_39_59 PM.png" alt="">
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="about us.html">ABOUT US</a></li>
+          <li><a href="#" style="color: red;">CONTACT US</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <img src="MANWHA-TOON.png" alt="Brigada Eskwela Banner" class="banner-img">
+  </section>
+
+  <h1>Contuct Us</h1>
+
+  <form id="contactForm">
+    <div class="formcontainer">
+      <div class="form">
+        <label>First Name:</label>
+        <input type="text" id="fname" placeholder="Your Name">
+      </div>
+
+      <div class="form">
+        <label>Last Name:</label>
+        <input type="text" id="lname" placeholder="Your Last Name">
+      </div>
+
+      <div class="form">
+        <label>Cellphone:</label>
+        <input type="text" id="cellphone" placeholder="format: 09120132031">
+      </div>
+
+      <div class="form">
+        <label>Email:</label>
+        <input type="text" id="email" placeholder="sample: sample123@email.com">
+      </div>
+
+      <div class="form">
+        <label>Organization:</label>
+        <input type="text" id="org">
+      </div>
+
+      <div class="form">
+        <label>Province:</label>
+        <select id="province">
+          <option value="">Select your Province:</option>
+          <option value="Davao del Norte">Davao del Norte</option>
+          <option value="Davao del Sur">Davao del Sur</option>
+          <option value="Davao City">Davao City</option>
+        </select>
+      </div>
+
+      <div class="form">
+        <label>City/Municipality: </label>
+        <select id="city">
+          <option value="">Select your Municipality or City</option>
+        </select>
+      </div>
+
+      <div class="form">
+        <label>Barangay:</label>
+        <select id="barangay">
+          <option value="">Select your Barangay:</option>
+        </select>
+      </div>
+
+      <div class="form">
+        <label>Street:</label>
+        <input type="text" id="street">
+      </div>
+
+      <div class="form">
+        <label>Message:</label>
+        <textarea id="message" placeholder="write something..."></textarea>
+      </div>
+
+      <div class="submit">
+        <button type="submit">Submit</button>
+      </div>
+    </div>
+  </form>
+
+  <script>
+  
+  const locationData = {
+    "Davao del Norte": {
+      "Tagum": ["Mankilam", "La Filipina", "Magugpo"]
+    },
+    "Davao del Sur": {
+      "Digos City": ["Zone 1", "Zone 2"]
+    },
+    "Davao City": {
+      "Talomo": ["Bangkal"],
+      "Buhangin": ["Cabantian"]
+    }
+  };
+
+  
+  const provinceSelect = document.getElementById("province");
+  const citySelect = document.getElementById("city");
+  const barangaySelect = document.getElementById("barangay");
+
+
+  provinceSelect.addEventListener("change", function () {
+    const province = this.value;
+    citySelect.innerHTML = '<option value="">Select your City</option>';
+    barangaySelect.innerHTML = '<option value="">Select your Barangay</option>';
+
+    if (locationData[province]) {
+      
+      for (let city in locationData[province]) {
+        let option = document.createElement("option");
+        option.value = city;
+        option.textContent = city;
+        citySelect.appendChild(option);
+      }
+    }
+  });
+
+  
+  citySelect.addEventListener("change", function () {
+    const province = provinceSelect.value;
+    const city = this.value;
+    barangaySelect.innerHTML = '<option value="">Select your Barangay</option>';
+
+    if (locationData[province] && locationData[province][city]) {
+      
+      locationData[province][city].forEach(function (barangay) {
+        let option = document.createElement("option");
+        option.value = barangay;
+        option.textContent = barangay;
+        barangaySelect.appendChild(option);
+      });
+    }
+  });
+
+  
+  document.getElementById("contactForm").addEventListener("submit", function (e) {
+    e.preventDefault(); 
+
+   
+    const fname = document.getElementById("fname").value.trim();
+    const lname = document.getElementById("lname").value.trim();
+    const cell = document.getElementById("cellphone").value.trim();
+    const message = document.getElementById("message").value.trim();
+    const province = provinceSelect.value;
+    const city = citySelect.value;
+    const barangay = barangaySelect.value;
+
+    
+    if (!fname || !lname || !cell || !province || !city || !barangay || !message) {
+      alert("Please fill out all fields.");
+      return;
+    }
+
+    
+    if (fname === lname) {
+      alert("First name and Last name must not be the same.");
+      return;
+    }
+
+  
+
+   
+    if (isNaN(cell)) {
+      alert("Cellphone number must be numeric.");
+      return;
+    }
+
+    
+    if (message.length < 10) {
+      alert("Message must be at least 10 characters long.");
+      return;
+    }
+
+    
+    alert("Form submitted successfully!");
+  });
+</script>
+
+
+  <footer>
+    <p>Copyright &copy; 2022 Manwhatoon</p>
+  </footer>
+</body>
+</html>
+
+
