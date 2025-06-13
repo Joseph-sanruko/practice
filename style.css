@@ -1,0 +1,163 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: #2A2A2A;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #121212;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+.logo img{
+  width: 100px;
+  border: solid black;
+  border-radius: 10px;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
+  font-weight: 700 bold;
+}
+
+.banner {
+  width: 100%;
+}
+
+.banner-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+
+.intro {
+  padding: 40px 20px;
+  background-color: #1E1E1E;
+  color: white;
+}
+
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
+  padding: 30px 30px;
+  background-color: #1E1E1E;
+}
+
+.cards img {
+  width: 500px;
+  height: 500px;
+  background: #2A2A2A;
+  border: solid black;
+  border-radius: 10px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 12px;
+  background: #121212;
+  color: white;
+}
+.formcontainer {
+    padding: 30px;
+    margin-top: 30px;
+    background-color: #2A2A2A;
+
+}
+.form{
+    width: 100%;
+    display: flex;
+    justify-self: center;
+    margin-top: 10px;
+    flex-wrap: wrap;  
+}
+.form label{
+    padding-right: 200px;
+    width: 200px;
+    font-family: "Galindo", sans-serif;
+    color:rgb(255, 255, 255) ;
+}
+.form input,.form select,.form textarea{
+    width: 90%;
+    flex: 1;
+    border: solid #121212 ;
+    height: 30px;
+    border-radius: 5px;
+    font-family: "Galindo", sans-serif;
+    font-weight: 500;
+}
+.form :placeholder-shown{
+    padding-left: 5px;
+    
+}
+.form textarea{
+    height: 120px;
+    resize: none;
+}
+.submit button {
+    background:  rgb(255, 255, 255);
+    color: rgb(0, 89, 255);
+    padding: 10px 25px;
+    border-radius: 10px;
+    font-family: "Galindo", sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    display: flex;
+    justify-self: end;
+}
+
+.submit button:hover{
+    background: #00ADB5 ;
+    color: #F96D00;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .banner-2 {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .banner-2-text h1 {
+    font-size: 24px;
+  }
+
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
